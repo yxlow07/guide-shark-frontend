@@ -22,7 +22,7 @@ class SingleChoiceSelection {
         buttons: options,
         onSelected: (val, idx, isSelectionMade) => onSelected(val),
         isRadio: true,
-        options: AppStyles().gbo(context),
+        options: AppStyles.gbo(context),
       ),
     ]);
   }

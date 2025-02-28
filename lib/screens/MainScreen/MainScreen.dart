@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guide_shark/data/MedicalData.dart';
+import 'package:guide_shark/screens/Questions/AssociatedSymptoms.dart';
 import 'package:guide_shark/screens/Questions/MainAreaOfConcern.dart';
 import 'package:guide_shark/screens/Questions/Radiation.dart';
 import '../../common/AppColors.dart';
@@ -36,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
           MainAreaOfConcern().mainAreaOfConcern(cubit),
           PainCharacter().painCharacter(cubit),
           Radiation().radiation(cubit),
+          AssociatedSymptoms().associatedSymptoms(cubit),
         ];
 
         cubit.emit(cubit.state.copyWith(pages: initialPages));

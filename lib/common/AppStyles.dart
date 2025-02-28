@@ -32,7 +32,9 @@ class AppStyles {
     color: AppColors.textColor,
   );
 
-  GroupButtonOptions gbo(BuildContext context) {
+  static const TextStyle hint = TextStyle(fontSize: 12, color: AppColors.grey);
+
+  static GroupButtonOptions gbo(BuildContext context) {
     return GroupButtonOptions(
       buttonWidth: MediaQuery.of(context).size.width * 0.9,
       selectedColor: AppColors.primaryColor,

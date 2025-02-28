@@ -1,10 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:body_part_selector/body_part_selector.dart';
 import 'package:flutter/material.dart';
-import 'package:guide_shark/screens/Questions/Radiation.dart';
 import 'package:guide_shark/screens/Questions/RadiationLocation.dart';
-import '../common/widgets/BodyPartSelector.dart';
-import '../screens/Questions/PainCharacter.dart';
 import 'MedicalDataState.dart';
 import 'MedicalData.dart';
 
@@ -71,18 +68,57 @@ class MedicalDataCubit extends Cubit<MedicalDataState> {
     var questionPages = state.pages;
     int location = 3;
     questionPages.insert(location, radiationPage);
-    emit(state.copyWith(pages: questionPages, currentPageIndex: location - 1));
-    print(state.pages);
-    print("Added radiation body selector, redirected to $location");
+    emit(
+      state.copyWith(
+        pages: questionPages,
+        currentPageIndex: location - 1,
+        formData: state.formData.copyWith(addedRadiation: true),
+      ),
+    );
   }
 
   void removeRadiationLocationPage() {
     var questionPages = state.pages;
     int location = 2;
-    questionPages.removeAt(3);
+    if (state.formData.addedRadiation == true) {
+      questionPages.removeAt(3);
+    }
     emit(state.copyWith(pages: questionPages, currentPageIndex: location));
+  }
 
-    print(state.pages);
-    print("Removed radiation body selector, redirected to $location");
+  void addAssociatedSymptoms(String symptom) {
+    List<String> associatedSymptoms = List.from(
+      state.formData.associatedSymptoms ?? [],
+    );
+    if (!associatedSymptoms.contains(symptom)) {
+      associatedSymptoms.add(symptom);
+    }
+    emit(
+      state.copyWith(
+        formData: state.formData.copyWith(
+          associatedSymptoms: associatedSymptoms,
+        ),
+      ),
+    );
+  }
+
+  void removeAssociatedSymptoms(String symptom) {
+    List<String> associatedSymptoms = List.from(
+      state.formData.associatedSymptoms ?? [],
+    );
+    associatedSymptoms.remove(symptom);
+    emit(
+      state.copyWith(
+        formData: state.formData.copyWith(
+          associatedSymptoms: associatedSymptoms,
+        ),
+      ),
+    );
+  }
+
+  void clearAssociatedSymptoms() {
+    emit(
+      state.copyWith(formData: state.formData.copyWith(associatedSymptoms: [])),
+    );
   }
 }
