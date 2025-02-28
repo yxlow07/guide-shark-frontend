@@ -21,15 +21,12 @@ class PainCharacter {
       bloc: cubit,
       builder: (context, state) {
         return Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChoiceSelection().build(
-              context: context,
-              options: options,
-              selectedValue: state.formData.painCharacter,
-              onSelected: (val) => cubit.updatePainType(val),
-              title: 'What is the character of your pain?',
-            ),
+          body: SingleChoiceSelection().build(
+            context: context,
+            options: options,
+            selectedValue: state.formData.painCharacter,
+            onSelected: (val) => cubit.updatePainType(val),
+            title: 'What is the character of your pain?',
           ),
         );
       },

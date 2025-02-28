@@ -38,6 +38,8 @@ class AppStyles {
       selectedColor: AppColors.primaryColor,
       unselectedColor: AppColors.lightGrey,
       borderRadius: BorderRadius.circular(100),
+      selectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
+      unselectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
     );
   }
 }

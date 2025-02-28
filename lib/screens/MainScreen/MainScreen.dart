@@ -44,7 +44,8 @@ class _MainScreenState extends State<MainScreen> {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            body: SafeArea(
+            body: Padding(
+              padding: EdgeInsets.all(20.0),
               child: BlocConsumer<MedicalDataCubit, MedicalDataState>(
                 listener: (context, state) {
                   if (_pageController.hasClients &&
