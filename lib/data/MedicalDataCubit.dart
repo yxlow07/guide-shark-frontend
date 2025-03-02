@@ -121,4 +121,24 @@ class MedicalDataCubit extends Cubit<MedicalDataState> {
       state.copyWith(formData: state.formData.copyWith(associatedSymptoms: [])),
     );
   }
+
+  void updatePainTimingType(bool constantPain) {
+    emit(
+      state.copyWith(
+        formData: state.formData.copyWith(constantPain: constantPain),
+      ),
+    );
+  }
+
+  void updateClockSelector(TimeOfDay time) {
+    emit(state.copyWith(formData: state.formData.copyWith(time: time)));
+  }
+
+  void markClockSelectorShown() {
+    emit(
+      state.copyWith(
+        formData: state.formData.copyWith(clockSelectorShown: true),
+      ),
+    );
+  }
 }

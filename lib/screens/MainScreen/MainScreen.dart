@@ -3,13 +3,13 @@ import 'package:guide_shark/data/MedicalData.dart';
 import 'package:guide_shark/screens/Questions/AssociatedSymptoms.dart';
 import 'package:guide_shark/screens/Questions/MainAreaOfConcern.dart';
 import 'package:guide_shark/screens/Questions/Radiation.dart';
-import '../../common/AppColors.dart';
 import '../../common/widgets/BottomNavbar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/MedicalDataCubit.dart';
 import '../../data/MedicalDataState.dart';
-import '../../common/widgets/BodyPartSelector.dart';
+import '../Questions/ClockSelector.dart';
 import '../Questions/PainCharacter.dart';
+import '../Questions/TimingSelector.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -38,6 +38,8 @@ class _MainScreenState extends State<MainScreen> {
           PainCharacter().painCharacter(cubit),
           Radiation().radiation(cubit),
           AssociatedSymptoms().associatedSymptoms(cubit),
+          TimingSelector().timingSelector(cubit),
+          ClockSelector().clockSelector(cubit),
         ];
 
         cubit.emit(cubit.state.copyWith(pages: initialPages));
@@ -47,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
         builder: (context) {
           return Scaffold(
             body: Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(80.0),
               child: BlocConsumer<MedicalDataCubit, MedicalDataState>(
                 listener: (context, state) {
                   if (_pageController.hasClients &&

@@ -1,16 +1,11 @@
-# guide_shark
-
-Application for Generative User Interface for Differential Evaluation via Symptom Analysis and Record Keeping (GUIDE-SHARK)
+# GUIDE-SHARK Frontend Application 
+Frontend application for Generative User Interface for Differential Evaluation via Symptom Analysis and Record Keeping (GUIDE-SHARK) written in Flutter
 
 ## Getting Started
+1. Install Flutter: https://flutter.dev/docs/get-started/install
+2. Download the project from GitHub using `git clone https://github.com/yxlow07/guide-shark-frontend.git`
+3. Run the project using `flutter run`
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Issues
+# Minor Bugs
+1. The select associated symptoms page may be deleted when the user press no on the pain radiation page. [/]

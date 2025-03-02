@@ -37,7 +37,9 @@ class AssociatedSymptoms {
                   focusNode: focusNode,
                   decoration: const InputDecoration(
                     labelText: 'Enter symptom here',
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                    ),
                   ),
                   onFieldSubmitted: (String value) {
                     onFieldSubmitted();
@@ -118,10 +120,13 @@ class AssociatedSymptoms {
                     String symptom = entry.value;
                     return Chip(
                       label: Text(symptom),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(1000.0),
+                      ),
                       onDeleted: () {
                         cubit.removeAssociatedSymptoms(symptom);
                       },
-                      deleteIcon: const Icon(Icons.cancel),
+                      deleteIcon: const Icon(Icons.delete),
                     );
                   }).toList(),
             ),
