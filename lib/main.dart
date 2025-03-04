@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guide_shark/screens/Results.dart';
 import 'common/AppTheme.dart';
 import 'screens/MainScreen/MainScreen.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MainScreen(),
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      // darkTheme: AppTheme.darkTheme,
     );
   }
 }

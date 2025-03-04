@@ -19,19 +19,15 @@ class Radiation {
     return BlocBuilder<MedicalDataCubit, MedicalDataState>(
       bloc: cubit,
       builder: (context, state) {
-        return Scaffold(
-          body: Center(
-            child: SingleChoiceSelection().build(
-              context: context,
-              options: selection,
-              selectedValue: state.formData.radiation,
-              onSelected: (val) {
-                cubit.updateRadiation(val);
-                addPages(val, cubit);
-              },
-              title: 'Does the pain radiate to other locations in your body?',
-            ),
-          ),
+        return SingleChoiceSelection().build(
+          context: context,
+          options: selection,
+          selectedValue: state.formData.radiation,
+          onSelected: (val) {
+            cubit.updateRadiation(val);
+            addPages(val, cubit);
+          },
+          title: 'Does the pain radiate to other locations in your body?',
         );
       },
     );

@@ -13,9 +13,9 @@ class BodyPartSelector {
     required Function(String, BodyParts) onSelected,
     required String title,
   }) {
-    return Question().build(title, [
+    return Question.build(title, [
       SizedBox(
-        height: MediaQuery.of(context).size.height * 0.6,
+        height: MediaQuery.of(context).size.height * 0.5,
         child: BodyPartSelectorTurnable(
           bodyParts: bodyParts,
           onSelectionUpdated: (p) {
@@ -27,12 +27,6 @@ class BodyPartSelector {
             });
             onSelected(newlySelectedPart, p);
           },
-          labelData: const RotationStageLabelData(
-            front: "Front",
-            left: "Left",
-            right: "Right",
-            back: "Back",
-          ),
           selectedColor: AppColors.primaryColor,
           unselectedColor: AppColors.grey,
         ),
@@ -43,10 +37,7 @@ class BodyPartSelector {
           style: AppStyles.body,
           children: [
             const TextSpan(text: 'Selected Body Part: ', style: AppStyles.body),
-            TextSpan(
-              text: camelCaseToCapitalize().process(selectedBodyPart ?? 'None'),
-              style: AppStyles.bodyBold,
-            ),
+            TextSpan(text: camelCaseToCapitalize().process(selectedBodyPart ?? 'None'), style: AppStyles.bodyBold),
           ],
         ),
       ),

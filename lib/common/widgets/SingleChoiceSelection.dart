@@ -16,7 +16,7 @@ class SingleChoiceSelection {
           selectedValue != null ? options.indexOf(selectedValue) : null,
     );
 
-    return Question().build(title, [
+    return Question.build(title, [
       GroupButton(
         controller: controller,
         buttons: options,

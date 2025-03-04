@@ -16,15 +16,15 @@ class ClockSelector {
 
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (!state.formData.clockSelectorShown) {
-            selectTime(context, cubit);
+            selectTime(context, cubit, state);
             cubit.markClockSelectorShown();
           }
         });
 
-        return Question().build(state.formData.clockSelectorTitle(), [
+        return Question.build(state.formData.clockSelectorTitle(), [
           InkWell(
             child: Image.asset(Images.clock, width: 300, height: 300),
-            onTap: () => selectTime(context, cubit),
+            onTap: () => selectTime(context, cubit, state),
           ),
           // InkWell(
           //   child: SizedBox(
@@ -49,26 +49,21 @@ class ClockSelector {
           SizedBox(height: 20),
           Text('Press the clock to select the time', style: AppStyles.hint),
           SizedBox(height: 20),
-          Text(
-            '${time.hour} hours ${time.minute} minutes',
-            style: AppStyles.title,
-          ),
+          Text('${time.hour} hours ${time.minute} minutes', style: AppStyles.title),
         ]);
       },
     );
   }
 
-  selectTime(BuildContext context, MedicalDataCubit cubit) async {
+  selectTime(BuildContext context, MedicalDataCubit cubit, MedicalDataState state) async {
     TimeOfDay initialTime = cubit.state.formData.time;
     final TimeOfDay? selectedTime = await showTimePicker(
       context: context,
       initialTime: initialTime,
       builder: (BuildContext context, Widget? child) {
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
-          child: child!,
-        );
+        return MediaQuery(data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true), child: child!);
       },
+      helpText: state.formData.clockSelectorTitle(),
     );
     if (selectedTime != null && selectedTime != initialTime) {
       cubit.updateClockSelector(selectedTime);

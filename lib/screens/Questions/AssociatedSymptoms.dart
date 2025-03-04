@@ -22,7 +22,7 @@ class AssociatedSymptoms {
       builder: (context, state) {
         List<String> selectedSymptoms = state.formData.associatedSymptoms ?? [];
 
-        return Question().build(
+        return Question.build(
           "Select all the associated symptoms that may apply.",
           [
             Autocomplete<String>(
@@ -73,7 +73,8 @@ class AssociatedSymptoms {
                   child: Material(
                     elevation: 4.0,
                     child: SizedBox(
-                      height: 200.0,
+                      height: 180.0,
+                      width: 280.0,
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
                         itemCount: options.length,
@@ -94,7 +95,7 @@ class AssociatedSymptoms {
                                 children: [
                                   Text(option),
                                   const Icon(
-                                    Icons.arrow_forward_ios,
+                                    Icons.add,
                                     size: 14,
                                     color: Colors.grey,
                                   ),

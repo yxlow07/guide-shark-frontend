@@ -11,21 +11,17 @@ class TimingSelector {
     return BlocBuilder<MedicalDataCubit, MedicalDataState>(
       bloc: cubit,
       builder: (context, state) {
-        return Scaffold(
-          body: Center(
-            child: SingleChoiceSelection().build(
-              context: context,
-              options: selection,
-              selectedValue:
-                  state.formData.constantPain == null
-                      ? null
-                      : selection[state.formData.constantPain! ? 0 : 1],
-              onSelected: (val) {
-                cubit.updatePainTimingType(val == selection[0]);
-              },
-              title: 'Are your symptoms..',
-            ),
-          ),
+        return SingleChoiceSelection().build(
+          context: context,
+          options: selection,
+          selectedValue:
+              state.formData.constantPain == null
+                  ? null
+                  : selection[state.formData.constantPain! ? 0 : 1],
+          onSelected: (val) {
+            cubit.updatePainTimingType(val == selection[0]);
+          },
+          title: 'Are your symptoms..',
         );
       },
     );

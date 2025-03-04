@@ -141,4 +141,16 @@ class MedicalDataCubit extends Cubit<MedicalDataState> {
       ),
     );
   }
+
+  void updatePainSlider(double value) {
+    emit(
+      state.copyWith(formData: state.formData.copyWith(painSliderValue: value)),
+    );
+  }
+
+  void updateReliefMethods(Map<String, bool> methods) {
+    emit(
+      state.copyWith(formData: state.formData.copyWith(reliefMethods: methods)),
+    );
+  }
 }

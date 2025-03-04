@@ -20,14 +20,12 @@ class PainCharacter {
     return BlocBuilder<MedicalDataCubit, MedicalDataState>(
       bloc: cubit,
       builder: (context, state) {
-        return Scaffold(
-          body: SingleChoiceSelection().build(
-            context: context,
-            options: options,
-            selectedValue: state.formData.painCharacter,
-            onSelected: (val) => cubit.updatePainType(val),
-            title: 'What is the character of your pain?',
-          ),
+        return SingleChoiceSelection().build(
+          context: context,
+          options: options,
+          selectedValue: state.formData.painCharacter,
+          onSelected: (val) => cubit.updatePainType(val),
+          title: 'What is the character of your pain?',
         );
       },
     );
