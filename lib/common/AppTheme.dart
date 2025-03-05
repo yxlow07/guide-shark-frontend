@@ -7,10 +7,8 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.primaryColor,
     brightness: Brightness.light,
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor, primary: AppColors.primaryColor),
   );
 
-  static ThemeData darkTheme = ThemeData(
-    primaryColor: AppColors.primaryColor,
-    brightness: Brightness.dark,
-  );
+  static ThemeData darkTheme = ThemeData(primaryColor: AppColors.primaryColor, brightness: Brightness.dark);
 }

@@ -125,9 +125,7 @@ class _MainScreenState extends State<MainScreen> {
         context,
       ).showSnackBar(SnackBar(content: Text('Form Submitted!'), backgroundColor: Colors.green));
 
-      Navigator.of(
-        context,
-      ).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Results(diagnosis: response)), (route) => false);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Results(diagnosis: response)));
     } catch (e) {
       setState(() {
         isLoading = false;
@@ -151,7 +149,7 @@ class _MainScreenState extends State<MainScreen> {
                 builder: _buildContent,
               ),
             ),
-            bottomNavigationBar: BottomNavbar.bottomNavigationBar,
+            // bottomNavigationBar: BottomNavbar.bottomNavigationBar,
           );
         },
       ),

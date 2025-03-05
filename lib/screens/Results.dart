@@ -28,7 +28,7 @@ class Results extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavbar.bottomNavigationBar,
+      // bottomNavigationBar: BottomNavbar.bottomNavigationBar,
     );
   }
 
